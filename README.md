@@ -25,4 +25,6 @@ Things you may want to cover:
 
 * test2
 
+* test3
+
 * ...
