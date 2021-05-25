@@ -4,6 +4,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def index
+    @posts = Post.all
+  end
+
   def show
     @posts = Post.all
   end

@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :posts
+  resources :posts do
+    resource :favorites, only: [:create, :destroy]
+  end
   # get '/posts', to: 'posts#show'
   # post '/posts/create', to: 'posts#create'
+  # get 'favorites/create'
+  # get 'favorites/destroy'
 
 end
