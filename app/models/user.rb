@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   attr_accessor :remember_token
   has_secure_password
+  mount_uploader :image, ImageUploader
 
   # ランダムなトークンを返す
   def User.new_token

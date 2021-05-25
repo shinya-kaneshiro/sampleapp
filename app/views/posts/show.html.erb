@@ -1,54 +1,6 @@
-<%= form_with(model: Post.new, url: posts_create_path, local: true, method: :post) do |f| %>
-  <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
-  <%= f.hidden_field(:user_id, value: session[:user_id]) %>
-  <%= f.submit "投稿", class: "btn btn-primary btn-block btn-attendance-confirmation" %>
-<% end %>
-<hr>
 <% @posts.each do |post| %>
   <p>
     <%= post.user_id %><br>
     <%= image_tag post.image.url %>
   </p>
 <% end %>
-
-<%
-=begin%>
- <%= form_with(url: posts_create_path, local: true, method: :post) do |f| %>
-  <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
-  <%= f.hidden_field(:user_id, value: session[:user_id]) %>
-  <%= f.submit "投稿", class: "btn btn-primary btn-block btn-attendance-confirmation" %>
-<% end %>
-<hr>
-<% @posts.each do |post| %>
-  <p>
-    <%= post.user_id %><br>
-    <%= image_tag post.image.url %>
-  </p>
-<% end %> 
-<%
-=end%>
-
-
-<%
-=begin%>
- <%= form_with(model: @post, url: posts_create_path, local: true, method: :post) do |f| %> 
-<%
-=end%>
-
-
-<%
-=begin%>
- <% @posts.each do |post| %>
-  <p>
-    <%= post.user_id %><br>
-    <%= image_tag post.image.url %>
-  </p>
-<% end %>
-<hr>
-<%= form_for :post, url: 'posts/create'  do |f| %>
-  <p><%=f.label "投稿者" %><br><%= f.text_field :user_id, placeholder: 'ハンドルネーム' %></p>
-  <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
-  <p><%= f.submit value: '投稿' %></p>
-<% end %> 
-<%
-=end%>

@@ -1,0 +1,14 @@
+
+
+<%= form_with(model: @post, local: true, method: :post) do |f| %>
+  <p><%= f.label "アップロードする画像を選択" %><br><%= f.file_field :image %></p>
+  <%= f.label :title, class: "label-image-title" %>
+  <%= f.hidden_field(:user_id, value: session[:user_id]) %>
+  <%= f.text_field :title, class: "form-control" %>
+  <%= f.label :comment, class: "label-image-comment" %>
+  <%= f.text_area :comment, rows: 5, class: "form-control" %>
+  <%= f.submit "投稿", class: "btn btn-primary btn-block btn-attendance-confirmation" %>
+<% end %>
+
+
+

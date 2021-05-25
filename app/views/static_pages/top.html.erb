@@ -1,10 +1,11 @@
 <% provide(:title, "Top") %>
 
-<div class="row">
-  <div class="center jumbotron">
-    <h1 class="headline">ポートフォリオ</h1>
-      <%= image_tag 'sample.jpg' %>
-  </div>
+<div class="jumbotron">
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
 <div class="row">
@@ -13,44 +14,31 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-sm-4 hidden-xs">
-      <div class="card h-100 bg-primary">
-        <img class="card-img-top" src="#" alt="ダミーテキスト">
-        <div class="card-body">
-          <h2 class="card-title">タイトル1</h2>
-          <p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-          <p class="card-text bu"><a href="#">リンクテキスト</a></p>
-        </div>
-      </div>
+<div class="row mb-3">
+  <div class=col-sm-4>
+    <div class="d-flex justify-content-center mb-1">
+      <%= image_tag "icon_001.jpg", class: "icon-size" %>
     </div>
-    
-    <div class="col-sm-4 hidden-xs">
-      <div class="card h-100 bg-primary">
-        <img class="card-img-top" src="#" alt="ダミーテキスト">
-        <div class="card-body">
-          <h2 class="card-title">タイトル1</h2>
-          <p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-          <p class="card-text bu"><a href="#">リンクテキスト</a></p>
-        </div>
-      </div>
+    <p class="text-center">ビックリ！</p>
+    <p class="text-center">まだ見たことのない風景や、驚きの瞬間に出会えるかも</p>
+  </div>
+  <div class=col-sm-4>
+    <div class="d-flex justify-content-center mb-1">
+      <%= image_tag "icon_002.jpg", class: "icon-size" %>
     </div>
-    
-    <div class="col-sm-4 hidden-xs">
-      <div class="card h-100 bg-primary">
-        <img class="card-img-top" src="#" alt="ダミーテキスト">
-        <div class="card-body">
-          <h2 class="card-title">タイトル1</h2>
-          <p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-          <p class="card-text bu"><a href="#">リンクテキスト</a></p>
-        </div>
-      </div>
+    <p class="text-center">分かち合う</p>
+    <p class="text-center">思いがけず、誰かの心を癒したり、勇気づけたりできるかも</p>
+  </div>
+  <div class=col-sm-4>
+    <div class="d-flex justify-content-center mb-1">
+      <%= image_tag "icon_003.jpg", class: "icon-size" %>
     </div>
-
+    <p class="text-center">シンプル</p>
+    <p class="text-center">使いやすいレイアウトを心がけています。</p>
   </div>
 </div>
+
+
 
 <div class="row">
   <div class="alert alert-success" role="alert">
@@ -73,75 +61,39 @@
 
     <div class="col-md-8">
 
-      <div class="card text-white bg-primary mb-3" style="max-width: 300rem;">
-        <div class="card-header">お知らせ</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">内容</p>
+      <div class="card alert-success mb-4" style="width: auto;">
+        <div class="card-header">
+          お知らせ
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">YYYY/mm/dd お知らせ内容 最新</li>
+          <li class="list-group-item">YYYY/mm/dd お知らせ内容 最新-1</li>
+          <li class="list-group-item">YYYY/mm/dd お知らせ内容 最新-2</li>
+        </ul>
       </div>
 
-      <div class="card-deck">
-        <div class="row">
+      <div class="card alert-success mb-4" style="width: auto;">
+        <div class="card-header">
+          最近の投稿
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
 
-          <div class="col-sm-4">
-            <div class="card h-100 bg-primary">
-              <img class="card-img-top" src="#" alt="ダミーテキスト">
+          <% @posts.each do |post| %>
+
+            <div class="card mb-3">
+              <%= image_tag post.image.url %>
               <div class="card-body">
-                <h2 class="card-title">タイトル1</h2>
-                <p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-                <p class="card-text bu"><a href="#">リンクテキスト</a></p>
+                <h5 class="card-title"><%= post.title %></h5>
+                <p class="card-text"><%= post.comment %></p>
+                <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
               </div>
             </div>
-          </div>
+          <% end %>
 
-          <div class="col-sm-4">
-            <div class="card h-100 bg-primary">
-              <img class="card-img-top" src="#" alt="ダミーテキスト">
-              <div class="card-body">
-                <h2 class="card-title">タイトル2</h2>
-                <p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-                <p class="card-text bu"><a href="#">リンクテキスト</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="card h-100 bg-primary">
-              <img class="card-img-top" src="#" alt="ダミーテキスト">
-              <div class="card-body">
-                <h2 class="card-title">タイトル3</h2>
-                <p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-                <p class="card-text bu"><a href="#">リンクテキスト</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="card text-white bg-primary mb-3" style="max-width: 300rem;">
-        <div class="card-header">最新の風景投稿</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">内容</p>
-        </div>
-      </div>
-
-      <div class="card text-white bg-primary mb-3" style="max-width: 300rem;">
-        <div class="card-header">最新の風景投稿</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">内容</p>
-        </div>
-      </div>
-
-      <div class="card text-white bg-primary mb-3" style="max-width: 300rem;">
-        <div class="card-header">最新の風景投稿</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">内容</p>
-        </div>
+          </li>
+          <li class="list-group-item">もっと見る</li>
+        </ul>
       </div>
 
     </div>

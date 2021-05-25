@@ -18,3 +18,15 @@ User.create!(name: "サンプルユーザC",
   password: "password",
   password_confirmation: "password",
   admin: false)
+
+User.create!(name: "サンプルユーザD",
+  email: "sample-d@email.com",
+  password: "password",
+  password_confirmation: "password",
+  admin: false)
+
+User.create!(name: "サンプルユーザE",
+  email: "sample-e@email.com",
+  password: "password",
+  password_confirmation: "password",
+  admin: false)

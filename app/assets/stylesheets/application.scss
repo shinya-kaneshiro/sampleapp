@@ -41,3 +41,34 @@
 //   margin-right: 10px;
 //   padding-top: 9px;
 // }
+
+/* TOPページ */
+.jumbotron {
+  background: url(top_page_image1.jpg);
+  background-size: cover;
+}
+
+.icon-size {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* マイページ */
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* デバッグウインドウ */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
