@@ -7,14 +7,8 @@
   <p><span>email: </span><%= link_to post.user.email, user_path(post.user.id) %></p>
   <p><span>投稿内容: </span><%= link_to post.image, post_path(post.id) %></p>
   
-  <% if logged_in? %>
-    <% if post.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-        <p><span>お気に入り解除: </span><%=link_to post.favorites.count, post_favorites_path(post.id), method: :delete, remote: true %></p>
-    <% else %>
-        <p><span>お気に入り登録: </span><%=link_to post.favorites.count, post_favorites_path(post.id), method: :post, remote: true %></p>
-    <% end %>
-  <% else %>
-    <p><span>お気に入り数: </span><%= post.favorites.count %></p>
-  <% end %>
+  <div id="favorites_buttons_<%= post.id %>">
+    <%= render partial: 'favorites/favorite', locals: { post: post} %>
+  </div>
   
 <% end %>
