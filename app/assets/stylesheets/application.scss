@@ -14,7 +14,8 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /* 共通 */
 // .body-common {
@@ -54,12 +55,38 @@
   object-fit: cover;
 }
 
+.new-post-photo {
+  width: auto;
+  max-height: 300px;
+  object-fit: contain;
+  background-color:#dde8e9
+}
+
 /* マイページ */
 .profile-photo {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+/* お気に入り機能 */
+.unfavorite-btn {
+  font-size: 20px;
+  color: #eee237;
+}
+
+.favorite-btn {
+  font-size: 20px;
+}
+
+/* 投稿一覧画面 */
+.photo-index-size {
+  width: auto;
+  // width: 326px;
+  max-height: 300px;
+  // object-fit: cover;
+  object-fit: contain;
 }
 
 /* デバッグウインドウ */

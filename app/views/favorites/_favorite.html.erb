@@ -1,9 +1,34 @@
-  <% if logged_in? %>
-    <% if post.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-        <p><span>お気に入り解除: </span><%= link_to post.favorites.count, post_favorites_path(post.id), method: :delete, remote: true %></p>
-    <% else %>
-        <p><span>お気に入り登録: </span><%= link_to post.favorites.count, post_favorites_path(post.id), method: :post, remote: true %></p>
-    <% end %>
+<% if logged_in? %>
+  <% if post.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+    <div>
+      <%= link_to post_favorites_path(post.id), class: "favorite-link", method: :delete, remote: true do %>
+        <i class="fas fa-star unfavorite-btn"></i>
+      <% end %>
+      <%= post.favorites.count %>
+    </div>
   <% else %>
-    <p><span>お気に入り数: </span><%= post.favorites.count %></p>
+    <div>
+      <%= link_to post_favorites_path(post.id), class: "favorite-link", method: :post, remote: true do %>
+        <i class="far fa-star favorite-btn"></i>
+      <% end %>
+      <%= post.favorites.count %>
+    </div>
   <% end %>
+<% else %>
+  <p><span>お気に入り数: </span><%= post.favorites.count %></p>
+<% end %>
+
+
+<%
+=begin%>
+ <% if logged_in? %>
+  <% if post.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+    <p><span>お気に入り解除: </span><%= link_to post.favorites.count, post_favorites_path(post.id), method: :delete, remote: true %></p>
+  <% else %>
+    <p><span>お気に入り登録: </span><%= link_to post.favorites.count, post_favorites_path(post.id), method: :post, remote: true %></p>
+  <% end %>
+<% else %>
+  <p><span>お気に入り数: </span><%= post.favorites.count %></p>
+<% end %> 
+<%
+=end%>
